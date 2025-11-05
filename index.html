@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+    <title>Handball Match Statistics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --c-primary: 37 99 235; --c-primary-hover: 29 78 216; --c-primary-focus: 59 130 246; --c-primary-light: 219 234 254; --c-primary-text: 30 58 138;
+        --c-secondary: 241 245 249; --c-secondary-hover: 226 232 240; --c-secondary-text: 71 85 105; --c-secondary-border: 203 213 225;
+        --c-danger: 220 38 38; --c-danger-hover: 185 28 28; --c-danger-light: 254 226 226; --c-danger-text: 153 27 27;
+        --c-success: 22 163 74; --c-success-hover: 21 128 61; --c-success-light: 220 252 231; --c-success-text: 20 83 45;
+        --c-warning: 245 158 11; --c-warning-hover: 217 119 6; --c-warning-light: 254 243 199; --c-warning-text: 146 64 14;
+        --c-background: 241 245 249; --c-background-card: 255 255 255;
+      }
+      .dark {
+        --c-primary: 96 165 250; --c-primary-hover: 59 130 246; --c-primary-focus: 37 99 235; --c-primary-light: 30 64 175; --c-primary-text: 219 234 254;
+        --c-secondary: 51 65 85; --c-secondary-hover: 71 85 105; --c-secondary-text: 148 163 184; --c-secondary-border: 71 85 105;
+        --c-danger: 248 113 113; --c-danger-hover: 239 68 68; --c-danger-light: 76 29 29; --c-danger-text: 254 226 226;
+        --c-success: 74 222 128; --c-success-hover: 34 197 94; --c-success-light: 21 94 53; --c-success-text: 220 252 231;
+        --c-warning: 250 204 21; --c-warning-hover: 245 158 11; --c-warning-light: 120 53 15; --c-warning-text: 254 243 199;
+        --c-background: 15 23 42; --c-background-card: 30 41 59;
+      }
+      html, body {
+        overscroll-behavior-y: contain;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: { DEFAULT: 'rgb(var(--c-primary) / <alpha-value>)', hover: 'rgb(var(--c-primary-hover) / <alpha-value>)', focus: 'rgb(var(--c-primary-focus) / <alpha-value>)', light: 'rgb(var(--c-primary-light) / <alpha-value>)', text: 'rgb(var(--c-primary-text) / <alpha-value>)', },
+              secondary: { DEFAULT: 'rgb(var(--c-secondary) / <alpha-value>)', hover: 'rgb(var(--c-secondary-hover) / <alpha-value>)', text: 'rgb(var(--c-secondary-text) / <alpha-value>)', border: 'rgb(var(--c-secondary-border) / <alpha-value>)', },
+              danger: { DEFAULT: 'rgb(var(--c-danger) / <alpha-value>)', hover: 'rgb(var(--c-danger-hover) / <alpha-value>)', light: 'rgb(var(--c-danger-light) / <alpha-value>)', text: 'rgb(var(--c-danger-text) / <alpha-value>)', },
+              success: { DEFAULT: 'rgb(var(--c-success) / <alpha-value>)', hover: 'rgb(var(--c-success-hover) / <alpha-value>)', light: 'rgb(var(--c-success-light) / <alpha-value>)', text: 'rgb(var(--c-success-text) / <alpha-value>)', },
+              warning: { DEFAULT: 'rgb(var(--c-warning) / <alpha-value>)', hover: 'rgb(var(--c-warning-hover) / <alpha-value>)', light: 'rgb(var(--c-warning-light) / <alpha-value>)', text: 'rgb(var(--c-warning-text) / <alpha-value>)', },
+              background: { DEFAULT: 'rgb(var(--c-background) / <alpha-value>)', card: 'rgb(var(--c-background-card) / <alpha-value>)', },
+            },
+            boxShadow: {
+              'card': '0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07)',
+              'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -2px rgb(0 0 0 / 0.05)',
+            },
+            keyframes: {
+              'fade-in': {
+                'from': { opacity: '0', transform: 'translateY(-10px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'fade-in-down': {
+                '0%': { opacity: '0', transform: 'translateY(-20px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              'fade-out-up': {
+                '0%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                '100%': { opacity: '0', transform: 'translateY(-20px) scale(0.95)' },
+              },
+              'pulse-warning': {
+                '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                '50%': { transform: 'scale(1.1)', opacity: '.9' },
+              },
+            },
+            animation: {
+              'fade-in': 'fade-in 0.3s ease-out forwards',
+              'fade-in-down': 'fade-in-down 0.4s ease-out forwards',
+              'fade-out-up': 'fade-out-up 0.4s ease-in forwards',
+              'pulse-warning': 'pulse-warning 1.5s ease-in-out infinite',
+            }
+          },
+        },
+      }
+    </script>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.546.0",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "xlsx": "https://aistudiocdn.com/xlsx@^0.18.5"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-CCtRZNok.js"></script>
+</head>
+  <body class="bg-background">
+    <div id="root"></div>
+  </body>
+</html>
