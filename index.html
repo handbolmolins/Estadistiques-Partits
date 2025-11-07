@@ -7,8 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-    <title>Handbol Molins des de 1944</title>
+    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)">
+    <title>Handbo Molins des de 1944</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       :root {
@@ -20,15 +20,32 @@
         --c-background: 241 245 249; --c-background-card: 255 255 255;
       }
       .dark {
-        --c-primary: 96 165 250; --c-primary-hover: 59 130 246; --c-primary-focus: 37 99 235; --c-primary-light: 30 64 175; --c-primary-text: 219 234 254;
-        --c-secondary: 51 65 85; --c-secondary-hover: 71 85 105; --c-secondary-text: 148 163 184; --c-secondary-border: 71 85 105;
-        --c-danger: 248 113 113; --c-danger-hover: 239 68 68; --c-danger-light: 76 29 29; --c-danger-text: 254 226 226;
-        --c-success: 74 222 128; --c-success-hover: 34 197 94; --c-success-light: 21 94 53; --c-success-text: 220 252 231;
+        --c-primary: 56 189 248; --c-primary-hover: 14 165 233; --c-primary-focus: 3 105 161; --c-primary-light: 8 47 73; --c-primary-text: 240 250 255;
+        --c-secondary: 51 65 85; --c-secondary-hover: 71 85 105; --c-secondary-text: 148 163 184; --c-secondary-border: 51 65 85;
+        --c-danger: 248 113 113; --c-danger-hover: 239 68 68; --c-danger-light: 127 29 29; --c-danger-text: 254 226 226;
+        --c-success: 74 222 128; --c-success-hover: 34 197 94; --c-success-light: 22 101 52; --c-success-text: 220 252 231;
         --c-warning: 250 204 21; --c-warning-hover: 245 158 11; --c-warning-light: 120 53 15; --c-warning-text: 254 243 199;
-        --c-background: 15 23 42; --c-background-card: 30 41 59;
+        --c-background: 2 6 23; --c-background-card: 15 23 42;
       }
       html, body {
         overscroll-behavior-y: contain;
+      }
+      body.dark::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background: radial-gradient(circle at 50% 0, rgba(var(--c-primary), 0.15), transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .dark header {
+        background-color: rgba(var(--c-background-card), 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom-color: rgba(var(--c-secondary-border), 0.5);
       }
     </style>
     <script>
@@ -45,8 +62,8 @@
               background: { DEFAULT: 'rgb(var(--c-background) / <alpha-value>)', card: 'rgb(var(--c-background-card) / <alpha-value>)', },
             },
             boxShadow: {
-              'card': '0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07)',
-              'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -2px rgb(0 0 0 / 0.05)',
+              'card': '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)',
+              'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
             },
             keyframes: {
               'fade-in': {
@@ -91,9 +108,9 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-CGhJ8Jse.js"></script>
+  <script type="module" crossorigin src="./assets/index-d66TBeWq.js"></script>
 </head>
   <body class="bg-background">
-    <div id="root"></div>
+    <div id="root" class="relative z-10"></div>
   </body>
 </html>
