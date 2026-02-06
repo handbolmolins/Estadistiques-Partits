@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)">
+    <title>Handbol Molins des de 1944</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-98C0JLKCKF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-98C0JLKCKF');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --c-primary: 37 99 235; --c-primary-hover: 29 78 216; --c-primary-focus: 59 130 246; --c-primary-light: 219 234 254; --c-primary-text: 30 58 138;
+        --c-secondary: 241 245 249; --c-secondary-hover: 226 232 240; --c-secondary-text: 71 85 105; --c-secondary-border: 203 213 225;
+        --c-danger: 220 38 38; --c-danger-hover: 185 28 28; --c-danger-light: 254 226 226; --c-danger-text: 153 27 27;
+        --c-success: 22 163 74; --c-success-hover: 21 128 61; --c-success-light: 220 252 231; --c-success-text: 20 83 45;
+        --c-warning: 245 158 11; --c-warning-hover: 217 119 6; --c-warning-light: 254 243 199; --c-warning-text: 146 64 14;
+        --c-background: 241 245 249; --c-background-card: 255 255 255;
+      }
+      .dark {
+        --c-primary: 56 189 248; --c-primary-hover: 14 165 233; --c-primary-focus: 3 105 161; --c-primary-light: 8 47 73; --c-primary-text: 240 250 255;
+        --c-secondary: 51 65 85; --c-secondary-hover: 71 85 105; --c-secondary-text: 148 163 184; --c-secondary-border: 51 65 85;
+        --c-danger: 248 113 113; --c-danger-hover: 239 68 68; --c-danger-light: 127 29 29; --c-danger-text: 254 226 226;
+        --c-success: 74 222 128; --c-success-hover: 34 197 94; --c-success-light: 22 101 52; --c-success-text: 220 252 231;
+        --c-warning: 250 204 21; --c-warning-hover: 245 158 11; --c-warning-light: 120 53 15; --c-warning-text: 254 243 199;
+        --c-background: 2 6 23; --c-background-card: 15 23 42;
+      }
+      html, body {
+        overscroll-behavior-y: contain;
+      }
+      body.dark::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background: radial-gradient(circle at 50% 0, rgba(var(--c-primary), 0.15), transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      /* Hide number input arrows */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: { DEFAULT: 'rgb(var(--c-primary) / <alpha-value>)', hover: 'rgb(var(--c-primary-hover) / <alpha-value>)', focus: 'rgb(var(--c-primary-focus) / <alpha-value>)', light: 'rgb(var(--c-primary-light) / <alpha-value>)', text: 'rgb(var(--c-primary-text) / <alpha-value>)', },
+              secondary: { DEFAULT: 'rgb(var(--c-secondary) / <alpha-value>)', hover: 'rgb(var(--c-secondary-hover) / <alpha-value>)', text: 'rgb(var(--c-secondary-text) / <alpha-value>)', border: 'rgb(var(--c-secondary-border) / <alpha-value>)', },
+              danger: { DEFAULT: 'rgb(var(--c-danger) / <alpha-value>)', hover: 'rgb(var(--c-danger-hover) / <alpha-value>)', light: 'rgb(var(--c-danger-light) / <alpha-value>)', text: 'rgb(var(--c-danger-text) / <alpha-value>)', },
+              success: { DEFAULT: 'rgb(var(--c-success) / <alpha-value>)', hover: 'rgb(var(--c-success-hover) / <alpha-value>)', light: 'rgb(var(--c-success-light) / <alpha-value>)', text: 'rgb(var(--c-success-text) / <alpha-value>)', },
+              warning: { DEFAULT: 'rgb(var(--c-warning) / <alpha-value>)', hover: 'rgb(var(--c-warning-hover) / <alpha-value>)', light: 'rgb(var(--c-warning-light) / <alpha-value>)', text: 'rgb(var(--c-warning-text) / <alpha-value>)', },
+              background: { DEFAULT: 'rgb(var(--c-background) / <alpha-value>)', card: 'rgb(var(--c-background-card) / <alpha-value>)', },
+            },
+            boxShadow: {
+              'card': '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)',
+              'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+            },
+            keyframes: {
+              'fade-in': {
+                'from': { opacity: '0', transform: 'translateY(-10px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'fade-in-down': {
+                '0%': { opacity: '0', transform: 'translateY(-20px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              'fade-out-up': {
+                '0%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                '100%': { opacity: '0', transform: 'translateY(-20px) scale(0.95)' },
+              },
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(20px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              'fade-out-down': {
+                '0%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                '100%': { opacity: '0', transform: 'translateY(20px) scale(0.95)' },
+              },
+              'pulse-warning': {
+                '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                '50%': { transform: 'scale(1.1)', opacity: '.9' },
+              },
+            },
+            animation: {
+              'fade-in': 'fade-in 0.3s ease-out forwards',
+              'fade-in-down': 'fade-in-down 0.4s ease-out forwards',
+              'fade-out-up': 'fade-out-up 0.4s ease-in forwards',
+              'fade-in-up': 'fade-in-up 0.4s ease-out forwards',
+              'fade-out-down': 'fade-out-down 0.4s ease-in forwards',
+              'pulse-warning': 'pulse-warning 1.5s ease-in-out infinite',
+            }
+          },
+        },
+      }
+    </script>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.546.0",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
+    "xlsx-js-style": "https://esm.sh/xlsx-js-style@1.2.0",
+    "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
+    "jspdf-autotable": "https://aistudiocdn.com/jspdf-autotable@^3.8.2",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.5.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-CQjYVjlb.js"></script>
+</head>
+  <body class="bg-background">
+    <div id="root" class="relative z-10"></div>
+    <div id="modal-root"></div>
+    <div id="toast-root"></div>
+  </body>
+</html>
