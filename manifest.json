@@ -1,0 +1,27 @@
+{
+    "theme_color": "#f1f5f9",
+    "background_color": "#f1f5f9",
+    "icons": [
+        {
+            "purpose": "maskable",
+            "sizes": "512x512",
+            "src": "icon.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "purpose": "any",
+            "sizes": "512x512",
+            "src": "icon.svg",
+            "type": "image/svg+xml"
+        }
+    ],
+    "orientation": "portrait",
+    "display": "standalone",
+    "dir": "auto",
+    "lang": "ca-ES",
+    "name": "Handbol Molins Estadístiques",
+    "short_name": "Handbol Molins",
+    "start_url": "./index.html",
+    "scope": "./",
+    "description": "Aplicació d'estadístiques del Club Handbol Molins de Rei"
+}

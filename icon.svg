@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100" fill="#2563eb" />
+  <circle cx="256" cy="256" r="180" fill="#f1f5f9" />
+  <text x="256" y="270" font-family="Arial, sans-serif" font-size="280" font-weight="bold" fill="#2563eb" text-anchor="middle" dominant-baseline="central">M</text>
+  <text x="256" y="440" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#2563eb" text-anchor="middle">HANDBOL</text>
+</svg>
