@@ -180,7 +180,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-BFcJs6SZ.js"></script>
+  <script type="module" crossorigin src="./assets/index-BVdbX-B2.js"></script>
 </head>
 
 <body class="bg-background">
@@ -193,6 +193,28 @@
         navigator.serviceWorker.register('./sw.js')
           .then((registration) => {
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
+
+            registration.onupdatefound = () => {
+              const installingWorker = registration.installing;
+              if (installingWorker == null) {
+                return;
+              }
+              installingWorker.onstatechange = () => {
+                if (installingWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    // New content is available; please refresh.
+                    console.log('New content is available; please refresh.');
+                    // Optionally notify user here or let App.tsx handle controllerchange
+                    if (confirm("Nova versió disponible. Fes clic a D'acord per actualitzar.")) {
+                      installingWorker.postMessage({ type: 'SKIP_WAITING' });
+                    }
+                  } else {
+                    // Content is cached for offline use.
+                    console.log('Content is cached for offline use.');
+                  }
+                }
+              };
+            };
           }, (err) => {
             console.log('ServiceWorker registration failed: ', err);
           });
