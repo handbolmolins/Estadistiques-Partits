@@ -180,7 +180,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="./assets/index-DXL_ptVm.js"></script>
+  <script type="module" crossorigin src="./assets/index-umeOWxKn.js"></script>
 </head>
 
 <body class="bg-background">
@@ -197,6 +197,7 @@
             // 1. Check if there is already a waiting worker (update available but not applied)
             if (registration.waiting) {
               console.log('A waiting ServiceWorker was found on load.');
+              window.__PWA_UPDATE_AVAILABLE__ = true;
               window.dispatchEvent(new CustomEvent('pwa-update-available'));
             }
 
@@ -210,6 +211,7 @@
                   if (navigator.serviceWorker.controller) {
                     // New content is available; dispatch event
                     console.log('New content is available; dispatching pwa-update-available event.');
+                    window.__PWA_UPDATE_AVAILABLE__ = true;
                     window.dispatchEvent(new CustomEvent('pwa-update-available'));
                   }
                 }
