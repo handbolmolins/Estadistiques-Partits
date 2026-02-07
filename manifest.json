@@ -24,8 +24,8 @@
     "display": "standalone",
     "dir": "auto",
     "lang": "ca-ES",
-    "name": "ESTADíSTIQUES",
-    "short_name": "ESTADíSTIQUES",
+    "name": "MolinStats",
+    "short_name": "MolinStats",
     "start_url": "./index.html",
     "scope": "./",
     "description": "Aplicació d'estadístiques del Club Handbol Molins de Rei"

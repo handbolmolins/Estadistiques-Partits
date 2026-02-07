@@ -1,4 +1,4 @@
-const CACHE_NAME = 'handbol-molins-v5';
+const CACHE_NAME = 'handbol-molins-v6';
 const urlsToCache = [
   './',
   './index.html',
