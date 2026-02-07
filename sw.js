@@ -1,4 +1,4 @@
-const CACHE_NAME = 'handbol-molins-v8';
+const CACHE_NAME = 'handbol-molins-v9';
 const urlsToCache = [
   './',
   './index.html',
@@ -7,7 +7,6 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', (event) => {
-  self.skipWaiting(); // Force waiting service worker to become active
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
